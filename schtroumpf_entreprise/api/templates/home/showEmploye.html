@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block title %}
+Gargamel is looking for you!
+{% endblock %}
+
+{% block stylesheet %}
+<!--    <link rel="stylesheet" type="text/css" href="{%  static 'css/beautiful.css' %}">-->
+{% endblock %}
+
+    <body>
+    {% block content %}
+    <h4>DRH : Azraël </h4>
+    <h4>DRH adjoint : Hackus </h4>
+    <form method="POST" class="post-form">
+            {% csrf_token %}
+    <div class="container">
+    <br>
+      <div class="form-group row">
+           <label class="col-sm-2 col-form-label" >Schtroumpf ID:</label>
+        <div class="col-sm-4">
+            <input type="text" name="id" required maxlength="56" placeholder="Search">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <button type="submit" name="button" class="btn btn-primary" >Rechercher</button>
+        </div>
+        <div class="col-md-4">
+            <center><a href="/api/listEmployees" class="btn btn-primary">Retour</a></center>
+        </div>
+      </div>
+
+    {%if employee %}
+        <table class="table table-striped table-bordered table-sm" id="id_table">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Age</th>
+                <th>Ville</th>
+                <th>Poste</th>
+                <th>Salaire</th>
+                <th>Département</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.prenom }}</td>
+                <td>{{ employee.nom }}</td>
+                <td>{{ employee.age }}</td>
+                <td>{{ employee.ville }}</td>
+                <td>{{ employee.poste }}</td>
+                <td>{{ employee.salaire }}</td>
+                <td>{{ employee.departement}}</td>
+                <td>
+                    <a href="/api/updateEmploye/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Modifier</span></a>
+                    <a href="/api/deleteEmploye/{{ employee.id }}">Annihiler</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    {% else %}
+        {%if clicked%}
+            <h3>Alerte ! Évasion d'un Schtroumpf ! Gargamel is looking for you!  </h3>
+        {% endif %}
+    {% endif %}
+    <br>
+    </div>
+    </form>
+    {% endblock %}
+    </body>

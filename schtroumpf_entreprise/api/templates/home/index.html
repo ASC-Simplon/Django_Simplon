@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block title %}
+The hell awaits for you !
+{% endblock %}
+
+{% block stylesheet %}
+<!--    <link rel="stylesheet" type="text/css" href="{%  static 'css/beautiful.css' %}">-->
+{% endblock %}
+
+{% block content %}
+<h3>Gestion des ressources schtroumpfiaines </h3>
+<h4>DRH : Azraël </h4>
+<h4>DRH adjoint : Hackus </h4>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="/static/img/Gargamel.jpg" width="200" height="500">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="./form_employee"
+                   class="btn btn-primary">
+                    Ajouter un nouveau Schtroumpf !
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="/static/img/Schtroumpf2.gif" width="200" height="500">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="./listEmployees"
+                   class="btn btn-primary">
+                    Lister mes Schtroumpfs !
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="/static/img/Azrael.jpg">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="./searchEmploye"
+                   class="btn btn-primary">
+                     Rechercher un Schtroumpf !
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block div1 %}
+<div class="split left">
+  <div class="centered">
+    <h2>Prison</h2>
+  </div>
+</div>
+{% endblock %}

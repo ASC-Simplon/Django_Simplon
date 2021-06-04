@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block title %}
+Update the Smurf!
+{% endblock %}
+{% block stylesheet %}
+<!--    <link rel="stylesheet" type="text/css" href="{%  static 'css/beautiful.css' %}">-->
+{% endblock %}
+<body>
+{% block content %}
+    <h4>DRH : Azraël </h4>
+    <h4>DRH adjoint : Hackus </h4>
+    <form method="POST" class="post-form" >
+            {% csrf_token %}
+    <div class="container">
+    <br>  
+     <div class="form-group row">
+        <label class="col-sm-0 col-form-label"></label>
+        <div class="col-sm-0">
+            <h4> Mis  à jour du {{ employee.prenom }} avec ID {{ employee.id }}</h4>
+        </div>  
+     </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Schtroumpf Prénom:</label>
+        <div class="col-sm-4">  
+            <input type="text" name="prenom" id="id_prenom" required maxlength="70" value="{{ employee.prenom }}" />
+        </div>  
+      </div>  
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Schtroumpf Nom:</label>
+        <div class="col-sm-4">  
+            <input type="text" name="nom" id="id_nom" required maxlength="56" value="{{ employee.nom }}" />
+        </div>  
+      </div>  
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Schtroumpf Ville:</label>
+        <div class="col-sm-4">  
+            <input type="text" name="ville" id="id_ville" required maxlength="56" value="{{ employee.ville }}" />
+        </div>  
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Schtroumpf Salaire:</label>
+        <div class="col-sm-4">
+            <input type="number" name="salaire" id="id_salaire" required maxlength="15" value="{{ employee.salaire }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Schtroumpf Age:</label>
+        <div class="col-sm-4">
+            <input type="number" name="age" id="id_age" required maxlength="15" value="{{ employee.age }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Schtroumpf Poste:</label>
+        <div class="col-sm-4">
+            <input type="text" name="poste" id="id_poste" required maxlength="70" value="{{ employee.poste }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+         <label class="col-sm-2 col-form-label" for="id_department">Schtroumpf Département:</label>
+        <div class="col-sm-4">
+            <input type="text" name="departement" id="id_department" required maxlength="56" value="{{ employee.departement_id }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </div>
+        <div class="col-md-4">
+            <center><a href="/api/listEmployees" class="btn btn-primary">Retour</a></center>
+        </div>
+      </div>
+    </div>
+    </form>
+{% endblock %}
+</body>
